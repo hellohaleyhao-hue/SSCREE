@@ -19,7 +19,8 @@ class StrainCalculator:
         # Standard distance tolerance is 0.4 Angstroms due to flexible backbones
         self.buffer = 0.4
 
-        print("NOTE: Starting this calculate_strain_value script reinitializes everything.\n")
+        print("-" * 20)
+        print("NOTE: Starting this calculate_strain_value script reinitializes everything.")
 
     def help(self):
         print()
@@ -99,7 +100,8 @@ class StrainCalculator:
             cmd.get_wizard().do_select(residue)
             cmd.get_wizard().set_mode(mutant_residue)
             cmd.frame(rotamer_number)
-            Statistical_frequency = cmd.get_title("mutation", rotamer_number)
+            raw_frequency = cmd.get_title("mutation", rotamer_number)
+            Statistical_frequency = raw_frequency.strip() if raw_frequency else "N/A"
             cmd.get_wizard().apply()
             cmd.set_wizard()
 
@@ -170,7 +172,8 @@ class StrainCalculator:
         cmd.refresh()
         end_time = time.perf_counter()
 
-        print(f"\nStrain results for {mutation} (run_time: {end_time - start_time:.2f}s)")
+        print(f"\nStrain results for {mutation} on {chain} (run_time: {end_time - start_time:.2f}s)")
+        print(f"-> Parameters: include_hydrogen_atoms = {self.include_hydrogen_atoms}")
         print("=" * 111)
         print(
             f"{'Rotamer':<8} | {'Frequency':<10} | {'Total':<10} | "
@@ -189,15 +192,15 @@ class StrainCalculator:
         return strain_value_data
 
     def set_include_hydrogen_atoms(self, include: str):
-        self.Include_hydrogen_atoms = self.bool_conversion(include)
+        self.include_hydrogen_atoms = self.bool_conversion(include)
 
-        if self.Include_hydrogen_atoms:
-            print("Hydrogen atoms will be included in the steric clash calculations.")
+        if self.include_hydrogen_atoms:
+            print("Hydrogen set to on (included in calculation)")
         else:
-            print("Hydrogen atoms will be excluded from the steric clash calculations.")
+            print("Hydrogen set to off (excluded from calculation)")
 
 # --- Register commands in PyMOL ---
-model = StrainCalculator("/.../example_protein.pse")
+model = StrainCalculator("/.../example_protein")
 
 cmd.extend("help", model.help)
 cmd.extend("calculate_strain", model.calculate_strain_value)
