@@ -15,23 +15,15 @@ SSCREE is a PyMOL-integrated Python tool for evaluating local steric overlap cau
 ---
 
 ## Navigation
-- [SSCREE](#sscree)
-  - [Introduction](#introduction)
-  - [Navigation](#navigation)
-  - [Features](#features)
-  - [Repository Structure](#repository-structure)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-  - [Usage \& Commands](#usage--commands)
-    - [1. PyMOL CLI](#1-pymol-cli)
-      - [Command Reference](#command-reference)
-    - [2. Python API](#2-python-api)
-    - [3. Batch Analysis \& Plotting](#3-batch-analysis--plotting)
-  - [Steric Strain Calculation](#steric-strain-calculation)
-    - [Default Parameters](#default-parameters)
-  - [Output Data Format](#output-data-format)
-  - [Troubleshooting](#troubleshooting)
-  - [License \& Citation](#license--citation)
+- [Features](#features)
+- [Repository Structure](#repository-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage \& Commands](#usage--commands)
+- [Steric Strain Calculation](#steric-strain-calculation)
+- [Output Data Format](#output-data-format)
+- [Troubleshooting](#troubleshooting)
+- [License \& Citation](#license--citation)
 
 ---
 
