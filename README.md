@@ -6,7 +6,7 @@ Steric Strain Calculation and Repulsive Energy Estimation (SSCREE)
 
 Estimating the impact of specific missense gene mutations on protein structure, thus function, comes from various sources of evidence such as changes to bonding, positional shifts, and evolutionary conservation. Steric clashes occur when the atoms of the mutated amino acid are in close proximity to surrounding atoms.
 
-Generally, the more clashes there are, the less stable the variant will make of the protein. Since natural selection optimizes native protein chains to pack tightly without severe destabilizing overlaps in the electron cloud, this tool, which calculates the total steric overlap from all atoms in the sidechain and surrounding atoms as a strain value, can be used to predict the pathogenicity of that variant, especially variants of uncertain significance (VUS).
+Generally, the more clashes there are, the less stable the variant will make of the protein. Since natural selection optimizes native protein chains to pack tightly without severe destabilizing overlaps in the electron cloud, this tool can be used to predict the pathogenicity of that variant.
 
 SSCREE is a PyMOL-integrated Python tool for evaluating local steric overlap caused by amino acid substitutions. It enumerates mutant side-chain rotamers via PyMOL's Mutagenesis Wizard, calculates geometric steric-strain scores based on Van der Waals overlaps, categorizes strain by surrounding atom types, and offers batch visualization tools (beeswarm plots).
 
@@ -15,6 +15,8 @@ SSCREE is a PyMOL-integrated Python tool for evaluating local steric overlap cau
 ---
 
 ## Navigation
+- [Introduction](#introduction)
+- [Navigation](#navigation)
 - [Features](#features)
 - [Repository Structure](#repository-structure)
 - [Requirements](#requirements)
@@ -40,15 +42,17 @@ SSCREE is a PyMOL-integrated Python tool for evaluating local steric overlap cau
 
 ```text
 SSCREE/
-├── lib/
-│   ├── sscree.py          # Core calculation engine & PyMOL commands
-│   └── strain_plotter.py  # Batch analysis & plotting module
 ├── data/
-│   ├── TTR_alphafold_homotetramer.pdb  # Example structure
-│   └── variant_list.txt                # Example variant list
-├── outputs/               # Generated figures directory
-├── run_sscree.py          # Single-variant execution script
-└── run_plotter.py          # Batch execution script
+│   ├── TTR_alphafold_homotetramer.pdb
+│   └── variant_list.txt
+├── docs/
+│   └── sscree_manual_and_technical_reference_guide.md
+├── lib/
+│   ├── sscree.py
+│   └── strain_plotter.py
+├── outputs/               # Created after plot generation
+├── run_sscree.py          # Single variant strain
+└── run_plotter.py         # Beeswarm plot
 ```
 
 ---
